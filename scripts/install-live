@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BASEDIR=$(dirname "$0")
+
+${BASEDIR}/clean/dist && ${BASEDIR}/clean/target && ${BASEDIR}/compile && ${BASEDIR}/deploy

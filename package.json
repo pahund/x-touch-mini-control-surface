@@ -1,0 +1,24 @@
+{
+  "name": "x-touch-mini-control-surface",
+  "version": "0.0.1",
+  "description": "Ableton Live control surface for the Behringer X-Touch Mini controller",
+  "main": "src/__init__.py",
+  "scripts": {
+    "clean": "yarn clean:dist && yarn clean:target",
+    "clean:dist": "scripty",
+    "clean:target": "scripty",
+    "compile": "scripty",
+    "deploy": "scripty",
+    "install-live": "scripty",
+    "logs": "scripty",
+    "package": "scripty"
+  },
+  "scripty": {
+    "silent": true
+  },
+  "author": "Patrick Hund",
+  "license": "MIT",
+  "devDependencies": {
+    "scripty": "^1.9.1"
+  }
+}
