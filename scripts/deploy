@@ -14,4 +14,4 @@ if [[ ! -d "${MIDI_REMOTE_SCRIPTS_DIR}" ]]; then
 fi
 
 echo "Copying:"
-cp -vR ${BASEDIR}/../dist/X-Touch_Mini "${MIDI_REMOTE_SCRIPTS_DIR}/"
+cp -vR ${BASEDIR}/../dist/XTouchMini "${MIDI_REMOTE_SCRIPTS_DIR}/"

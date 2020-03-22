@@ -1,9 +1,7 @@
 import Live
 from _Framework.ControlSurface import ControlSurface
 
-from handle_midi_control_change import *
-from handle_midi_note_off import *
-from handle_midi_note_on import *
+from consts import *
 from midi_utils import *
 
 
@@ -41,19 +39,20 @@ class XTouchMini(ControlSurface):
 
     def build_midi_map(self, midi_map_handle):
         script_handle = self.c_instance.handle()
-        for channel in range(15):
-            for note_or_control in range(128):
-                Live.MidiMap.forward_midi_note(script_handle, midi_map_handle, channel, note_or_control, False)
-                Live.MidiMap.forward_midi_cc(script_handle, midi_map_handle, channel, note_or_control, False)
+
+        for cc in range(1, 19):
+            Live.MidiMap.forward_midi_cc(script_handle, midi_map_handle, midi_channel, cc, False)
+
+        for note in range(0, 48):
+            Live.MidiMap.forward_midi_note(script_handle, midi_map_handle, midi_channel, note, False)
 
     def receive_midi(self, midi_bytes):
+        midi_event_type = get_midi_event_type(midi_bytes)
+        if midi_event_type == midi_event_type_note_off:
+            return
         self.log_dev('Received MIDI ' + str(midi_bytes))
-        (midi_event_type, midi_channel) = get_midi_event_type_and_channel(midi_bytes)
         self.log_dev('Type: ' + midi_event_type)
         self.log_dev('Channel: ' + str(midi_channel + 1))
         self.log_dev(('Controller: '
                       if midi_event_type == midi_event_type_control else 'Note: ')
                      + str(midi_bytes[1]))
-        handle_midi_note_on(self, midi_bytes)
-        handle_midi_note_off(self, midi_bytes)
-        handle_midi_control_change(self, midi_bytes)

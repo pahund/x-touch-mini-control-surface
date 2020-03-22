@@ -4,6 +4,6 @@ BASEDIR=$(dirname "$0")
 
 python -m compileall ${BASEDIR}/../src
 
-mkdir -p ${BASEDIR}/../dist/X-Touch_Mini
+mkdir -p ${BASEDIR}/../dist/XTouchMini
 
-mv ${BASEDIR}/../src/*.pyc ${BASEDIR}/../dist/X-Touch_Mini
+mv ${BASEDIR}/../src/*.pyc ${BASEDIR}/../dist/XTouchMini

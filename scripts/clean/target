@@ -11,10 +11,10 @@ if [[ ! -d "${MIDI_REMOTE_SCRIPTS_DIR}" ]]; then
   exit 2
 fi
 
-if [[ ! -d "${MIDI_REMOTE_SCRIPTS_DIR}/X-Touch_Mini" ]]; then
-  echo "Directory '${MIDI_REMOTE_SCRIPTS_DIR}/X-Touch_Mini' does not exist, nothing to delete"
+if [[ ! -d "${MIDI_REMOTE_SCRIPTS_DIR}/XTouchMini" ]]; then
+  echo "Directory '${MIDI_REMOTE_SCRIPTS_DIR}/XTouchMini' does not exist, nothing to delete"
   exit 0
 fi
 
 echo "Deleting:"
-rm -rfv "${MIDI_REMOTE_SCRIPTS_DIR}/X-Touch_Mini"
+rm -rfv "${MIDI_REMOTE_SCRIPTS_DIR}/XTouchMini"
