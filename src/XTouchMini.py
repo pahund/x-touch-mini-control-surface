@@ -3,6 +3,7 @@ from _Framework.ControlSurface import ControlSurface
 
 from consts import *
 from midi_utils import *
+from Encoder import Encoder
 
 
 class XTouchMini(ControlSurface):
@@ -29,6 +30,8 @@ class XTouchMini(ControlSurface):
         self.log('Control surface version ' + software_version)
         self.show_message("X-Touch Mini control surface version: " + software_version)
         self.log_dev("Ready!")
+        encoder1 = Encoder(1, self.log_dev)
+        self.log_dev("Selected track: " + str(self.song().view.selected_track.color_index))
 
     def log_dev(self, msg):
         if is_dev_mode:
@@ -56,3 +59,4 @@ class XTouchMini(ControlSurface):
         self.log_dev(('Controller: '
                       if midi_event_type == midi_event_type_control else 'Note: ')
                      + str(midi_bytes[1]))
+
